@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Leader Board',
+      template: './src/index.html',
     }),
   ],
 };
