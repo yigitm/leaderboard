@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main,
+section,
+footer,
+.post,
+.get {
+  display: flex;
+}
+
+main {
+  height: 70vh;
+  justify-content: space-around;
+}
+
+.get > button {
+  margin-left: 1em;
+}
+
+.post > button {
+  align-self: flex-end;
+  width: 50%;
+}
+
+header {
+  margin-left: 5em;
+  padding-top: 5em;
+}
+
+h2 {
+  margin: 0;
+}
+
+section,
+.post {
+  flex-direction: column;
+}
+
+.post {
+  gap: 0.5em;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li:nth-child(even) {
+  background: grey;
+}
+
+footer {
+  justify-content: center;
+  align-items: flex-end;
+}
