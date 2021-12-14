@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://yigitm.github.io/leaderboard/)
 
 ## Getting Started
 
