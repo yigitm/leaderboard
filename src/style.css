@@ -49,7 +49,7 @@ ul {
 }
 
 ul li:nth-child(even) {
-  background: grey;
+  background: rgb(216, 214, 214);
 }
 
 footer {
