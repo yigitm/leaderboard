@@ -54,7 +54,7 @@ const ApiCall = (() => {
 
   const displayScores = () => {
     const ul = document.querySelector('ul');
-    if (localStorage.Score !== undefined) {
+    if (localStorage.Score !== undefined && ul.children.length === 0) {
       const localData = JSON.parse(localStorage.getItem('Score')).result;
       localData.forEach((data) => {
         const li = document.createElement('li');
