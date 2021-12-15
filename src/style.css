@@ -44,12 +44,12 @@ section,
   gap: 0.5em;
 }
 
-ul {
+ol {
   list-style: none;
 }
 
-ul li:nth-child(even) {
-  background: grey;
+ol li:nth-child(even) {
+  background: rgb(216, 214, 214);
 }
 
 footer {
