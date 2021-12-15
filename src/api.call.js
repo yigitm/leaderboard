@@ -25,37 +25,41 @@ const ApiCall = (() => {
   };
 
   const postData = () => {
+    let name = document.getElementById('name');
+    let score = document.getElementById('score');
+
     fetch(paramURL, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
-        user: 'John Doe',
-        score: 42,
+        user: name.value,
+        score: score.value,
       }),
     })
       .then((response) => {
         return response.json();
       })
       .then((result) => {
-        localStorage.setItem('Score', JSON.stringify(result));
+        console.log(result);
       });
+    name.value = '';
+    score.value = '';
   };
 
-  const getData = () => {
-    fetch(paramURL)
-      .then((response) => response.json())
-      .then((result) => {
-        localStorage.setItem('Score', JSON.stringify(result));
-      })
-      .then(() => {
-        return displayScores();
-      });
+  const getData = async () => {
+    const response = await fetch(paramURL);
+    const scores = await response.json();
+    const result = () => {
+      localStorage.setItem('Score', JSON.stringify(scores.result));
+      return displayScores();
+    };
+    result();
   };
 
   const displayScores = () => {
     const ul = document.querySelector('ul');
     if (localStorage.Score !== undefined && ul.children.length === 0) {
-      const localData = JSON.parse(localStorage.getItem('Score')).result;
+      const localData = JSON.parse(localStorage.getItem('Score'));
       localData.forEach((data) => {
         const li = document.createElement('li');
         li.innerText = data.user + ' : ' + data.score;
