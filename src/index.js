@@ -6,6 +6,10 @@ ApiCall.displayScores();
 const buttons = document.querySelectorAll('button');
 buttons.forEach((btn) => {
   btn.addEventListener('click', () => {
-    btn.innerText === 'Refresh' ? ApiCall.getData() : ApiCall.postData();
+    if (btn.innerText === 'Refresh') {
+      ApiCall.getData();
+    } else {
+      ApiCall.postData();
+    }
   });
 });
