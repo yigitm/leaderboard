@@ -1,14 +1,10 @@
 import './style.css';
+import ApiCall from './api.call';
 
-const getUsers = () => {
-  fetch(
-    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores',
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      //document.getElementsByTagName('ul')[0].innerHTML = `<li></li>`;
-      console.log(data);
-    });
-};
+const buttons = document.querySelectorAll('button');
 
-getUsers();
+buttons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btn.innerText === 'Refresh' ? ApiCall.displayScores() : ApiCall.postData();
+  });
+});
