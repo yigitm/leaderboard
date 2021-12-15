@@ -6,8 +6,7 @@ const ApiCall = (() => {
   const baseURL =
     'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
   const paramURL = baseURL + 'games/pHJ29donGbnWnRz8vdHU/scores/';
-  let localData = JSON.parse(localStorage.getItem('Score')).result;
-
+  let r = false;
   const createGame = () => {
     const gameURL = apiURL + 'games/';
     fetch(gameURL, {
@@ -47,18 +46,22 @@ const ApiCall = (() => {
       .then((response) => response.json())
       .then((result) => {
         localStorage.setItem('Score', JSON.stringify(result));
+      })
+      .then(() => {
+        return displayScores();
       });
-    displayScores();
   };
 
   const displayScores = () => {
     const ul = document.querySelector('ul');
-
-    localData.forEach((data) => {
-      const li = document.createElement('li');
-      li.innerText = data.user + ':' + data.score;
-      ul.append(li);
-    });
+    if (localStorage.Score !== undefined) {
+      const localData = JSON.parse(localStorage.getItem('Score')).result;
+      localData.forEach((data) => {
+        const li = document.createElement('li');
+        li.innerText = data.user + ' : ' + data.score;
+        ul.append(li);
+      });
+    }
   };
 
   return { postData, getData, displayScores };
