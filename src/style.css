@@ -54,7 +54,7 @@ ol {
   border: 0.2em solid black;
   overflow: scroll;
   font-size: 2rem;
-  height: 35%;
+  height: 35vh;
 }
 
 ol li:nth-child(even) {
@@ -74,7 +74,7 @@ input {
 
 button {
   padding: 0.3em;
-  font-size: 2em;
+  font-size: 1.8em;
   box-shadow: 0.2em 0.2em;
 }
 
